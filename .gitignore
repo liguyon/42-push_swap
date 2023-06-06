@@ -2,4 +2,6 @@
 *.o
 *.a
 .vscode/*
+test
+src/test/*
 push_swap
