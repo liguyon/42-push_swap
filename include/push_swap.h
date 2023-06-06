@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:29:13 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/06 23:38:59 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/07 00:02:26 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,9 @@ void	stack2_swap(t_stack2 *this, char op);
 void	stack2_push(t_stack2 *this, char op);
 void	stack2_rotate(t_stack2 *this, char op);
 void	stack2_reverse_rotate(t_stack2 *this, char op);
+
+// sorting
+void	stack2_sort(t_stack2 *this);
 
 /////
 int		parse(int count, char *content[], int *out);
