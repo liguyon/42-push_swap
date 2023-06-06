@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 19:18:41 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/06 21:05:20 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/06 22:46:44 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,6 @@ void	stack2_destroy(t_stack2 *this)
 
 int	stack2_init(t_stack2 *this, int *content, int size)
 {
-	int	i;
-
 	this->a = malloc(sizeof(t_stack));
 	this->b = malloc(sizeof(t_stack));
 	if (this->a == NULL || this->b == NULL)
@@ -41,10 +39,9 @@ int	stack2_init(t_stack2 *this, int *content, int size)
 	}
 	stack_init(this->a);
 	stack_init(this->b);
-	i = -1;
-	while (++i < size)
+	while (--size >= 0)
 	{
-		if (stack_push(this->a, content[i]) != E_OK)
+		if (stack_push(this->a, content[size]) != E_OK)
 		{
 			stack2_destroy(this);
 			return (E_MALLOC);
