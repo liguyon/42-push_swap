@@ -22,9 +22,13 @@ SRC_DIR		:= src
 SRC			:= main.c \
 				stack/stack.c \
 				stack/utils.c \
+				stack2/stack2.c \
+				stack2/swap.c \
+				stack2/push.c \
+				stack2/rotate.c
 
 SRC_TEST	:= $(filter-out main.c, $(SRC)) \
-				test/test_stack.c
+				test/test_stack2.c
 
 # Objects
 OBJ_DIR		:= .build

@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 18:16:01 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/06 18:50:13 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/06 20:42:14 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,19 +29,17 @@ int	stack_push(t_stack *this, int item)
 	return (E_OK);
 }
 
-void	stack_pop(t_stack *this)
+int	stack_pop(t_stack *this)
 {
 	t_list	*lst;
+	int		value;
 
-	if (stack_is_empty(this))
-		return ;
 	lst = this->items;
-	if (lst->next != NULL)
-		this->items = lst->next;
-	else
-		this->items = NULL;
+	value = stack_peek(this);
+	this->items = lst->next;
 	ft_lstdelone(lst, free);
 	this->top--;
+	return (value);
 }
 
 int	stack_peek(t_stack *this)
