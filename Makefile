@@ -25,7 +25,8 @@ SRC			:= main.c \
 				stack2/stack2.c \
 				stack2/swap.c \
 				stack2/push.c \
-				stack2/rotate.c
+				stack2/rotate.c \
+				parse.c \
 
 SRC_TEST	:= $(filter-out main.c, $(SRC)) \
 				test/test_stack2.c

@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:29:13 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/06 22:35:48 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/06 23:38:59 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 enum e_errno
 {
 	E_OK,
-	E_MALLOC
+	E_MALLOC,
+	E_ARGS
 };
 
 /*
@@ -51,7 +52,7 @@ int		stack_peek(t_stack *this);
 // Return the size of the stack
 int		stack_size(t_stack *this);
 
-// Check if the stack is empty or not
+// Check whether the stack is empty
 int		stack_is_empty(t_stack *this);
 
 // !!!
@@ -77,9 +78,17 @@ int		stack2_init(t_stack2 *this, int *content, int size);
 // Clear any memory that has been allocated for the stack2 and
 // reinitialize its elements
 void	stack2_destroy(t_stack2 *this);
+
+// Operations on stacks as described in the subject
+// op is the last letter of the operation
+// for example: rra -> op = 'a'
+//				ss -> op = 's'
 void	stack2_swap(t_stack2 *this, char op);
 void	stack2_push(t_stack2 *this, char op);
 void	stack2_rotate(t_stack2 *this, char op);
 void	stack2_reverse_rotate(t_stack2 *this, char op);
+
+/////
+int		parse(int count, char *content[], int *out);
 
 #endif
