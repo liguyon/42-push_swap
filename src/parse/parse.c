@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 22:58:47 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/06 23:54:59 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:59:32 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,30 +36,46 @@ static int	check_value(const char *nbr)
 	return (E_OK);
 }
 
-static int	check_duplicate(int n, int *tab, int size)
+static int	check_duplicate(int *sorted, int size)
 {
-	while (--size >= 0)
+	while (--size > 0)
 	{
-		if (tab[size] == n)
+		if (sorted[size] == sorted[size - 1])
 			return (E_ARGS);
 	}
 	return (E_OK);
 }
 
+static int	*array_dup(int *tab, int size)
+{
+	int	*res;
+
+	res = malloc(sizeof(int) * size);
+	if (res == NULL)
+		return (NULL);
+	while (--size >= 0)
+		res[size] = tab[size];
+	return (res);
+}
+
 int	parse(int count, char *content[], int *out)
 {
 	int		i;
-	int		n;
+	int		*tmp;
 
 	i = -1;
 	while (++i < count)
 	{
 		if (check_value(content[i]) != E_OK)
 			return (E_ARGS);
-		n = ft_atoi(content[i]);
-		if (check_duplicate(n, out, i) != E_OK)
-			return (E_ARGS);
-		out[i] = n;
+		out[i] = ft_atoi(content[i]);
 	}
+	tmp = array_dup(out, count);
+	if (tmp == NULL)
+		return (E_MALLOC);
+	quicksort(tmp, 0, count - 1);
+	if (check_duplicate(tmp, count) != E_OK)
+		return (E_ARGS);
+	free(tmp);
 	return (E_OK);
 }

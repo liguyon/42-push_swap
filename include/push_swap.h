@@ -6,7 +6,7 @@
 /*   By: liguyon <liguyon@student.42lehavre.fr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 15:29:13 by liguyon           #+#    #+#             */
-/*   Updated: 2023/06/07 00:02:26 by liguyon          ###   ########.fr       */
+/*   Updated: 2023/06/07 17:45:16 by liguyon          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ int		stack_size(t_stack *this);
 // Check whether the stack is empty
 int		stack_is_empty(t_stack *this);
 
+// Check whether the stack is sorted
+int		stack_is_sorted(t_stack *this);
 // !!!
 // For debugging - remove before final push
 void	stack_print_items(t_stack *this);
@@ -62,7 +64,7 @@ void	stack_print_items(t_stack *this);
 ////
 
 /*
-	Implementation of the two stacks used in push_swap and the
+	A class that contains the two stacks used in push_swap and the
 	permitted operations on them
 */
 typedef struct s_stack2	t_stack2;
@@ -92,6 +94,7 @@ void	stack2_reverse_rotate(t_stack2 *this, char op);
 void	stack2_sort(t_stack2 *this);
 
 /////
+void	quicksort(int *tab, int start, int end);
 int		parse(int count, char *content[], int *out);
 
 #endif
